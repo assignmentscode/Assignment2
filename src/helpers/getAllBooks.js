@@ -63,8 +63,6 @@ const getBookDetailsWithRatings = () => {
       tempBookObject.rating = bookRatings[i].rating;
       newBookArray.push(tempBookObject);
     }
-    const finalBookResponse = sortByAuthorName(newBookArray);
-    console.log(finalBookResponse);
     return newBookArray;
   });
 };
