@@ -23,6 +23,24 @@ const ratingsUrl = (id) => {
   return url;
 };
 
+const sortByAuthorName = (arrayOfObjects) => {
+  const finalResponse = {};
+  let uniqueAuthors = [];
+  uniqueAuthors.push(arrayOfObjects[0].Author);
+  uniqueAuthors = arrayOfObjects.filter((bookObject) => {
+    if (uniqueAuthors.includes(bookObject.Author)) {
+      return false;
+    }
+    return true;
+  });
+  uniqueAuthors.forEach((author) => {
+    const sameAuthorBooks = arrayOfObjects.filter(currentBook => currentBook.Author === author);
+    finalResponse.author = sameAuthorBooks;
+  });
+  return finalResponse;
+};
+
+
 const getBookDetailsWithRatings = () => {
   const result = getListOfBooks();
   return result.then(async (bookObjects) => {
@@ -45,7 +63,8 @@ const getBookDetailsWithRatings = () => {
       tempBookObject.rating = bookRatings[i].rating;
       newBookArray.push(tempBookObject);
     }
-    // console.log(newBookArray);
+    const finalBookResponse = sortByAuthorName(newBookArray);
+    console.log(finalBookResponse);
     return newBookArray;
   });
 };
