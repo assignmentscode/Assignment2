@@ -1,0 +1,26 @@
+{
+  "name": "assignment2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "migrationUp": "node_modules/.bin/sequelize db:migrate",
+    "migrationDown": "node_modules/.bin/sequelize db:migrate:undo:all",
+    "test": "NODE_ENV=test npm run migrationDown && NODE_ENV=test npm run migrationUp && jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.12.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "jest": "^24.0.0"
+  },
+  "dependencies": {
+    "hapi": "^17.8.3",
+    "pg": "^7.8.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.42.0",
+    "sequelize-cli": "^5.4.0"
+  }
+}
