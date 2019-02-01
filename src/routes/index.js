@@ -1,3 +1,5 @@
+const booksWithRaings = require('./../helpers/getAllBooks');
+
 module.exports = [
   {
     method: 'GET',
@@ -9,6 +11,5 @@ module.exports = [
   {
     method: 'GET',
     path: '/booksAndRatings',
-    handler: (request, h) => h.response('HELLO WORLD'),
-
+    handler: booksWithRaings,
   }];
